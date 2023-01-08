@@ -1,9 +1,16 @@
 # Open-src application (Arithmetic & Huffman Code)
+### encoding and decoding 
 
-
+```sh
+/* radfet_control_fun.c
+ *
+ *  Created on: 2022/01/08
+ *      Author: Yi Hsuan Chou
+ */
+```
 ## File structure
 ```bash
-assignment_2-Mondayhs/
+assignment_3-Mondayhs/
         ├──bin/         # binary file which can execute
         │   
         ├──obj/         # object file which can be linked
