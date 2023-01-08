@@ -9,9 +9,10 @@
 #include "../inc/huffman.h"
 
 void print_usage(char *file){
-	printf("%s", "erro!");
-	printf("%s -[d,e] [input file] [output file]\n", file);
-	
+	printf("%s", "Erro!\n");
+	printf("%s", " Please input follow : \n");
+	printf("%s", " if u want encode use '-e', decode use '-d'.  \n");
+	printf("%s -[d,e] [input file] [output Arithmetic file] [output Huffman file]\n", file);
 }
 
 int main(int argc, char** argv) {
@@ -22,11 +23,6 @@ int main(int argc, char** argv) {
     double duration_arith, duration_huff;
 	int symbol;
 
-    // FILE* input = fopen("/Users/zhouchou/github-classroom/NCU-DSA-111-1/assignment_3-Mondayhs/data/data100.txt", "rb");
-    // FILE* output = fopen("/Users/zhouchou/github-classroom/NCU-DSA-111-1/assignment_3-Mondayhs/data/ec.txt", "wb");
-    
-    
-    
     if(argc!=5)
 	{
 		print_usage(argv[0]);
@@ -55,7 +51,7 @@ int main(int argc, char** argv) {
 				close_encode();
 				finish_arth = clock();
                 duration_arith = (double)(finish_arth - start_arth) / CLOCKS_PER_SEC;
-	            printf("       time cost: %f\n", duration_arith);
+	            printf("       time cost: %f  ms\n", duration_arith);
 
 				printf("       start encoding by Huffman ...    \n");
 				start_huff = clock();
@@ -63,7 +59,7 @@ int main(int argc, char** argv) {
                 encodeFileData(root, input1, output1);
                 finish_huff = clock();
                 duration_huff = (double)(finish_huff - start_huff) / CLOCKS_PER_SEC;
-	            printf("       time cost: %f\n", duration_huff);
+	            printf("       time cost: %f  ms\n", duration_huff);
 				break;
 			case 'd':
 
