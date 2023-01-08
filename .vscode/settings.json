@@ -3,6 +3,9 @@
         "malloc.h": "c",
         "string.h": "c",
         "stdio.h": "c",
-        "huffman.h": "c"
+        "huffman.h": "c",
+        "cstdio": "c",
+        "fstream": "c",
+        "__locale": "c"
     }
 }
