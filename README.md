@@ -2,11 +2,10 @@
 ### encoding and decoding 
 
 
-/* radfet_control_fun.c
- *
- *  Created on: 2022/01/08
+
+ *      Created on: 2022/01/08
  *      Author: Yi Hsuan Chou
- */
+ 
 
 ## File structure
 ```bash
