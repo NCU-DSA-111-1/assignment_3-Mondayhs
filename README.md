@@ -20,8 +20,9 @@ assignment_2-Mondayhs/
         └──assignment#3.pdf
         
         
-        
-        ## Compile
+  
+  
+## Compile
 ```sh
 sudo chmod +x build.sh
 ./build.sh
