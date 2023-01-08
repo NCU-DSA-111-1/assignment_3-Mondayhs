@@ -45,7 +45,7 @@ cd bin
 ## Reference
 ```sh
 Huffman:
-(https://www.foxzzz.com/Huffman-Code-Demo/)   
+<https://www.foxzzz.com/Huffman-Code-Demo/>   
 Arithmetic: 
-(https://par.cse.nsysu.edu.tw/~homework/algo01/8934609/index.html)   
+<https://par.cse.nsysu.edu.tw/~homework/algo01/8934609/index.html>   
 ```
