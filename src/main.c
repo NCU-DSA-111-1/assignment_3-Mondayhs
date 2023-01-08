@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
     FILE *input1, *output1 = NULL;
     double duration_arith, duration_huff;
 	int symbol;
-
+    char present;
     if(argc!=5)
 	{
 		print_usage(argv[0]);
@@ -60,8 +60,21 @@ int main(int argc, char** argv) {
                 finish_huff = clock();
                 duration_huff = (double)(finish_huff - start_huff) / CLOCKS_PER_SEC;
 	            printf("       time cost: %f  ms\n", duration_huff);
+                printf("%s", " Do u want to see huffuman tree and list ? (Y or N) \n");
+                scanf("%s", &present);
+                if (present == ('Y' | 'y')){
+                    // huffmanDemo();
+                    printHuffmanTree(stdout, root);
+                    printHuffmanList(stdout, root);
+                }
+                else {
+                    printf("%s", " See u next time !!! \n");
+                }
+
 				break;
+
 			case 'd':
+                // TODO: combine huffuman
 
 				printf("       start decoding by Arithmetic...\n");
 				init_arth(input);
@@ -82,4 +95,10 @@ int main(int argc, char** argv) {
 	}
 
     return 0;
+
+	
+
+
+
+
 }
