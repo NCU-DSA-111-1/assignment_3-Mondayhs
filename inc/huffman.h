@@ -18,6 +18,8 @@
 /*文件路徑長度*/
 #define PATH_MAX 1024
 
+// static const char FILE_HEADER_FLAG;
+
 
 /*文件類型*/
 enum {
@@ -62,7 +64,7 @@ typedef struct _tHuffmanTree {
 /*========================================================================
     TIME process functions.
  */
-
+struct timeval startTimestamp();
 double endTimestamp(struct timeval start);
 
 /*========================================================================
@@ -96,7 +98,11 @@ int getFileType(const char filename[]);
 int writeFileHeader(pNode root, FILE* output);
 void readFileHeader(FILE* input, int times[]);
 void toDecode(pNode root, FILE* input);
+void toEncode(pNode root, FILE* input);
 int encodeFileData(pNode root, FILE* input, FILE* output);
+void encodeFileOption(const char filename[]);
+void decodeFileOption(const char filename[]);
+
 void huffmanDemo();
 void inputDataToTestOption();
 void readFileOption();

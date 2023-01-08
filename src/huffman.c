@@ -10,7 +10,8 @@
 
 #include "../inc/huffman.h"
 /*文件頭標示*/
-const char FILE_HEADER_FLAG[] = { 'F', 'X' };
+static const char FILE_HEADER_FLAG[] = { 'F', 'X' };
+
 
 /*========================================================================
     TIME process functions.
@@ -113,7 +114,7 @@ void generateHuffmanCode(pNode root) {
 pNode buildHuffmanTree(int times[]) {
     pNode nodelist[FOREST_SIZE] = { NULL };
     pNode root = NULL;
-    struct timeval startstamp = startTimestamp();
+    // struct timeval startstamp = startTimestamp();
     int index;
     /*创建森林表*/
     for (index = 0; index < LIST_SIZE; ++index) {
@@ -139,7 +140,7 @@ pNode buildHuffmanTree(int times[]) {
         }
     }
     generateHuffmanCode(root);
-    printf("       bulid huffman tree : %lf msc\n", endTimestamp(startstamp));
+    // printf("       bulid huffman tree : %lf msc\n", endTimestamp(startstamp));
     return root;
 }
 
@@ -458,6 +459,27 @@ int getFileType(const char filename[]) {
     return type;
 }
 
+/*读文件选项*/
+void readFileOption() {
+    char filename[PATH_MAX] = { 0 };
+    printf("    *******************************\n");
+    printf("        # Read File #\n");
+    printf("\n");
+    printf("       input file name : ");
+    scanf("%s", filename);
+    printf("\n");
+    switch (getFileType(filename)) {
+    case FILE_TYPE_ENCODE:
+        encodeFileOption(filename);
+        break;
+    case FILE_TYPE_DECODE:
+        decodeFileOption(filename);
+        break;
+    default:
+        printf("       error : Failed to read file.\n");
+    }
+}
+
 /*写入文件头信息（文件头含文件头标识和字符权重集）*/
 int writeFileHeader(pNode root, FILE* output) {
     pNode nodelist[LIST_SIZE] = { NULL };
@@ -578,6 +600,9 @@ void encodeFileOption(const char filename[]) {
     }
 }
 
+
+
+
 /*文件解码选项*/
 void decodeFileOption(const char filename[]) {
     FILE* input = fopen(filename, "rb");
@@ -626,28 +651,6 @@ void decodeFileOption(const char filename[]) {
 }
 
 
-
-
-/*读文件选项*/
-void readFileOption() {
-    char filename[PATH_MAX] = { 0 };
-    printf("    *******************************\n");
-    printf("        # Read File #\n");
-    printf("\n");
-    printf("       input file name : ");
-    scanf("%s", filename);
-    printf("\n");
-    switch (getFileType(filename)) {
-    case FILE_TYPE_ENCODE:
-        encodeFileOption(filename);
-        break;
-    case FILE_TYPE_DECODE:
-        decodeFileOption(filename);
-        break;
-    default:
-        printf("       error : Failed to read file.\n");
-    }
-}
 
 /*测试选项*/
 void inputDataToTestOption() {
